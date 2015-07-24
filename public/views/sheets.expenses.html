@@ -1,0 +1,28 @@
+<div ui-view="createExpense"></div>
+
+<a class="btn btn-success" ui-sref="sheets.expenses.create({id: sheet._id})" ui-sref-active="hide"><span class="glyphicon glyphicon-check"></span> Create Expense</a>
+
+<table class="table table-hover table-condensed">
+	<thead>
+		<tr>
+			<th>Name</th>
+			<th>Amount</th>
+			<th>Date</th>
+			<th>Paid by</th>
+			<th>Paid for</th>
+			<th>Action</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr ng-repeat="expense in sheet.expenses | orderBy:-expense.date:reverse">
+			<td>{{expense.name}}</td>
+			<td>{{expense.amount}}</td>
+			<td>{{expense.date | date:'yyyy-MM-dd'}}</td>
+			<td>{{showFriendName(expense.paid_by)}}</td>
+			<td>{{showFriendNames(expense.paid_for)}}</td>
+			<td>
+				<button class="btn btn-danger btn-xs" ng-click="deleteExpense(expense)"><span class="glyphicon glyphicon-remove"></span></button>
+			</td>
+		</tr>
+	</tbody>
+</table>

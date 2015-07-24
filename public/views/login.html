@@ -1,0 +1,27 @@
+<div layout="row" flex style="background-color: lightseagreen" layout-align="center center">
+	<div class="md-whiteframe-z4" flex-gt-md="35">
+		<md-toolbar>
+            <div class="md-toolbar-tools">
+                <h2>Bill Keep</h2>
+            </div>
+        </md-toolbar>
+        <md-content layout-padding>
+			<md-card>
+				<md-card-content>
+					<h2>Shared expenses made simple</h2>
+					<p>Manage expenses between your friends and know exactly who owes who.</p>
+					<p>
+		  				<md-button class="md-raised md-warn" ng-click="createSheet()" 
+		  					ng-show="!creationInProgress" ng-hide="creationInProgress">
+		  					Start Now!
+		  				</md-button>
+		  				<md-button class="md-raised md-warn" ng-show="creationInProgress" 
+		  					ng-hide="!creationInProgress">
+		  					Please wait
+		  				</md-button>
+					</p>
+                </md-card-content>
+            </md-card>
+		</md-content>
+	</div>
+</div>

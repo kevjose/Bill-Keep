@@ -1,0 +1,29 @@
+<md-card>
+	<md-card-content>
+		<h2 layout="row">
+			<span layout="column">{{sheet.name}}</span> 
+				<md-button layout="column" ui-sref="sheets.edit({id: sheet._id})" class="md-icon-button md-warn">
+					<md-icon aria-label="Edit" md-font-icon="fa fa-pencil-square-o"></md-icon>
+				</md-button>
+		</h2>
+		<p>This sheet is shared between {{sheet.friends.length}} friends (<a ui-sref="sheets.friends({id: sheet._id})">add more</a>) and contains {{sheet.expenses.length}} expenses (<a ui-sref="sheets.expenses({id: sheet._id})">add more</a>).</p>
+		<p style="word-wrap: break-word;">Share this sheet with your friends: <strong>{{url}}</strong></p>
+		<h2 ng-show="balance.length >0">Balance</h2>
+		<table class="table">
+			<thead>
+      			<tr>
+			    	<th>Owed By</th>
+			        <th>Owed Amount (<i class="fa fa-inr"></i>)</th>
+			        <th>Owed To</th>
+			    </tr>
+    		</thead>
+    		<tbody ng-repeat="b in balance">
+      			<tr ng-repeat="owe in b.owes">
+        			<td>{{b.name}}</td>
+        			<td>{{owe.amount | number:2}}</td>
+        			<td>{{owe.name}}</td>
+      			</tr>
+    		</tbody>
+  		</table>
+	</md-card-content>
+</md-card>

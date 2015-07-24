@@ -1,0 +1,47 @@
+<form name="form" class="form-horizontal" role="form">
+	<div class="form-group">
+		<label for="inputName" class="col-sm-4 control-label">Name</label>
+		<div class="col-sm-4">
+	  		<input type="text" class="form-control" id="inputName" placeholder="Name this expense" name="eName" ng-model="expense.name" ng-minlength="3" ng-trim="true"required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputAmount" class="col-sm-4 control-label">Amount</label>
+		<div class="col-sm-4">
+	  		<input type="text" class="form-control" id="inputAmount" placeholder="Amount" name="eAmount" ng-model="expense.amount" ng-trim="true" required>
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="inputDate" class="col-sm-4 control-label">Date</label>
+		<div class="col-sm-4">
+	  		<!-- <div style="display:inline-block;">
+		        <datepicker ng-model="dt" min-date="minDate" show-weeks="true" class="well well-sm"></datepicker>
+		    </div> -->
+		    <input type=date ng-model="dt">
+		</div>
+	</div>
+	<div class="form-group">
+		<label for="selectPaidBy" class="col-sm-4 control-label">Paid By</label>
+		<div class="col-sm-4">
+			<select class="form-control" name="ePaidBy" ng-model="expense.paid_by" required>
+				<option value="{{friend._id}}"  ng-repeat="friend in sheet.friends">{{friend.name}}</option>
+			</select>
+		</div>
+	</div>
+
+	<div class="form-group">
+		<label for="selectPaidBy" class="col-sm-4 control-label">Paid For</label>
+		<div class="col-sm-4">
+			<select class="form-control" multiple name="ePaidFor" ng-model="expense.paid_for" required>
+				<option value="{{friend._id}}"  ng-repeat="friend in sheet.friends">{{friend.name}}</option>
+			</select>
+		</div>
+	</div>
+	
+	<div class="form-group">
+		<div class="col-sm-offset-4 col-sm-4">
+	  		<button class="btn btn-success" ng-click="addExpense(expense, dt)"><span class="glyphicon glyphicon-check"></span> Save</button>
+	  		<a class="btn btn-warning" ui-sref="sheets.expenses({id: sheet._id})">Discard</a>
+		</div>
+	</div>
+</form>

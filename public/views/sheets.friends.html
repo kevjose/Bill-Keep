@@ -1,0 +1,62 @@
+
+
+<md-card>
+	<md-card-content>
+		<form name="loginForm">
+		    <div layout layout-sm="column">
+            	<md-input-container flex>
+                	<label>Name</label>
+                    <input ng-model="friend" required type="text">
+                </md-input-container>
+            </div>
+		</form>
+		<md-button class="md-raised md-warn" ng-click="addFriend(friend)">
+			<i class="fa fa-user-plus"></i>
+			 Add Friend
+		</md-button>
+		<br/>
+		<br/>
+		<table ng-if="sheet.friends.length >0" class="table table-hover table-condensed">
+			<thead>
+				<tr>
+					<th class="col-sm-1 col-md-2">Name</th>
+					<th class="col-sm-1 col-md-2">Action</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="friend in sheet.friends">
+					<td>
+						<span ng-show="!friend.editable" ng-hide="friend.editable">{{friend.name}}</span>
+						<form class="form-inline" role="form" ng-show="friend.editable" ng-hide="!friend.editable">
+							<div class="row">
+								<div class="col-xs-5 col-md-4">
+									<input type="text" class="form-control input-sm" ng-model="newname" placeholder="{{friend.name}}">
+								</div>
+		
+								<button class="btn btn-success btn-sm" ng-click="editFriend(newname, friend)"><span class="glyphicon glyphicon-check"></span></button>
+							</div>
+						</form>
+					</td>
+					<td>
+						<button class="btn btn-warning btn-xs" ng-click="showEditFriend(friend)"><span class="glyphicon glyphicon-edit"></span></button>
+						<button class="btn btn-danger btn-xs" ng-click="deleteFriend(friend)"><span class="glyphicon glyphicon-remove"></span></button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+    </md-card-content>
+</md-card>
+
+       
+
+<!-- <form class="form-inline" role="form">
+	<div class="row">
+		<div class="col-xs-3 col-md-2">
+			<input type="text" class="form-control input-sm" ng-model="friend" placeholder="John Doe" />
+		</div>
+
+		<button class="btn btn-success btn-sm" ng-click="addFriend(friend)"><span class="glyphicon glyphicon-check"></span> Add</button>
+	</div>
+</form> -->
+
+
