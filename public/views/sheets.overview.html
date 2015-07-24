@@ -6,8 +6,19 @@
 					<md-icon aria-label="Edit" md-font-icon="fa fa-pencil-square-o"></md-icon>
 				</md-button>
 		</h2>
-		<p>This sheet is shared between {{sheet.friends.length}} friends (<a ui-sref="sheets.friends({id: sheet._id})">add more</a>) and contains {{sheet.expenses.length}} expenses (<a ui-sref="sheets.expenses({id: sheet._id})">add more</a>).</p>
+		<p>This sheet is shared between {{sheet.friends.length}} friends and contains {{sheet.expenses.length}} expenses.</p>
 		<p style="word-wrap: break-word;">Share this sheet with your friends: <strong>{{url}}</strong></p>
+		<div layout="row">
+			<md-button class="md-raised md-warn" layout="column"  ui-sref="sheets.friends">
+	        	<i class="fa fa-user-plus fa-lg"></i>
+	        	&nbsp;Add Friends
+	      	</md-button>
+	      	<br/>
+	      	<md-button class="md-raised md-accent" layout="column" ui-sref="sheets.expenses">
+	        		<i class="fa fa-flask fa-lg"></i>
+	        	&nbsp;Add Expenses
+	      	</md-button>
+      	</div>
 		<h2 ng-show="balance.length >0">Balance</h2>
 		<table class="table">
 			<thead>

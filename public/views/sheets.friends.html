@@ -5,7 +5,7 @@
 		<form name="loginForm">
 		    <div layout layout-sm="column">
             	<md-input-container flex>
-                	<label>Name</label>
+                	<label>Enter Friend's Name</label>
                     <input ng-model="friend" required type="text">
                 </md-input-container>
             </div>
@@ -16,6 +16,15 @@
 		</md-button>
 		<br/>
 		<br/>
+		<span class="text-info md-padding">
+			<i class="fa fa-lightbulb-o"></i>
+			<small>Add at-least two friends to add and share an expense</small>
+		</span>
+		<br/>
+		<md-button class="md-raised md-accent" ng-click="toggleSidenav('left')"  ui-sref="sheets.expenses">
+        	<i class="fa fa-flask fa-lg"></i>
+        	&nbsp; Add New Expense
+      	</md-button>
 		<table ng-if="sheet.friends.length >0" class="table table-hover table-condensed">
 			<thead>
 				<tr>

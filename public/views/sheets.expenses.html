@@ -1,6 +1,17 @@
+<div layout="row">
+	<md-button layout="column" class="md-raised md-primary" ui-sref="sheets.overview">
+	 	<i class="fa fa-tachometer fa-lg"></i>
+	 	&nbsp;Back to Overview
+	</md-button>
+	<md-button layout="column" class="md-raised md-warn" layout="column" 
+		ui-sref="sheets.expenses.create({id: sheet._id})" ui-sref-active="hide">
+	 	<i class="fa fa-flask fa-lg"></i>
+	 	&nbsp;Create New Expense
+	</md-button>
+</div>
 <div ui-view="createExpense"></div>
 
-<a class="btn btn-success" ui-sref="sheets.expenses.create({id: sheet._id})" ui-sref-active="hide"><span class="glyphicon glyphicon-check"></span> Create Expense</a>
+
 
 <table class="table table-hover table-condensed">
 	<thead>
