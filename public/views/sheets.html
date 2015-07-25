@@ -14,17 +14,20 @@
     	<md-list>
         	<md-item>
             	<md-item-content>
-                	<md-button  ng-click="toggleSidenav('left')" ui-sref="sheets.overview">
+                	<md-button  class="sidenavItem" ng-click="toggleSidenav('left')" 
+                		ui-sref-active ui-sref="sheets.overview">
                   	<i class="fa fa-tachometer fa-lg"></i>
                    	&nbsp; Overview
                 	</md-button>
                 	<br/>
-                	<md-button ng-click="toggleSidenav('left')"  ui-sref="sheets.friends">
+                	<md-button class="sidenavItem" ng-click="toggleSidenav('left')"  
+                		ui-sref-active ui-sref="sheets.friends">
                   		<i class="fa fa-user-plus fa-lg"></i>
                   		&nbsp; Friends
                 	</md-button>
                 	<br/>
-                	<md-button ng-click="toggleSidenav('left')"  ui-sref="sheets.expenses">
+                	<md-button class="sidenavItem" ng-click="toggleSidenav('left')"  
+                		ui-sref-active ui-sref="sheets.expenses">
                   		<i class="fa fa-flask fa-lg"></i>
                   	&nbsp; Expenses
                 	</md-button>

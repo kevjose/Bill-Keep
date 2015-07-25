@@ -1,4 +1,4 @@
-var app = angular.module('MuppetApp', ['ngMaterial','ui.router']);
+var app = angular.module('MuppetApp', ['ngMaterial','ngAnimate','ui.router']);
 
 app.constant('Options', {baseUrl: 'https://kevsbillapp.herokuapp.com'});
 
