@@ -279,7 +279,7 @@ app.factory('BalanceService', function() {
 
       //Create initial array containing for each friend, the list of other friends with amount = 0
       for (var i in friends) {
-        balance[i] = {_id: friends[i]._id, name: friends[i].name, owes: []};
+        balance[i] = {_id: friends[i]._id, name: friends[i].name, owes: [],spent:0};
         for (var j in friends) {
           if (i != j) {
             balance[i].owes.push({_id: friends[j]._id, name: friends[j].name, amount: 0});
@@ -297,10 +297,16 @@ app.factory('BalanceService', function() {
 
           if (balance[j]._id == expense.paid_by) {
             for (var k in expense.paid_for) {
+            	var addedToSpent =false;
               for (var l in balance[j].owes) {
                 if (balance[j].owes[l]._id == expense.paid_for[k]) {
                   balance[j].owes[l].amount -= amountPerFriend;
+                  
                 }
+                if(balance[j]._id ==expense.paid_for[k] && !addedToSpent){
+              	  balance[j].spent += amountPerFriend; 
+              	  addedToSpent =true;
+              	}
               }
             }
           }
@@ -310,6 +316,7 @@ app.factory('BalanceService', function() {
                 for (var l in balance[j].owes) {
                   if (balance[j].owes[l]._id == expense.paid_by) {
                     balance[j].owes[l].amount += amountPerFriend;
+                    balance[j].spent += amountPerFriend; 
                     break ;
                   }
                 }
@@ -318,7 +325,7 @@ app.factory('BalanceService', function() {
           }
         }
       }
-
+      console.log(balance);
       //Remove negative amount
       for (var i in balance) {
         for (var j in balance[i].owes) {

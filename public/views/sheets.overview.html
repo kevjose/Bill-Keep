@@ -19,7 +19,7 @@
 	        	&nbsp;Add Expenses
 	      	</md-button>
       	</div>
-		<h2 ng-show="balance.length >0">Balance</h2>
+		<h2>Balance</h2>
 		<table class="table">
 			<thead>
       			<tr>
@@ -33,6 +33,23 @@
         			<td>{{b.name}}</td>
         			<td>{{owe.amount | number:2}}</td>
         			<td>{{owe.name}}</td>
+      			</tr>
+    		</tbody>
+  		</table>
+  		<br/>
+  		<br/>
+  		<h2>Individual Spendings</h2>
+  		<table class="table">
+  			<thead>
+      			<tr>
+			    	<th>&nbsp;</th>
+			        <th>Spent(<i class="fa fa-inr"></i>)</th>
+			    </tr>
+    		</thead>
+    		<tbody>
+      			<tr ng-repeat="bal in balance">
+        			<td>{{bal.name}}</td>
+        			<td>{{bal.spent | number:2}}</td>
       			</tr>
     		</tbody>
   		</table>
